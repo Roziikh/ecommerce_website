@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema(
     isAdmin: { type: Boolean, default: false, required: true },
   },
   {
-    timestaps: true, //last create & update time of each
+    timestamps: true, //last create & update time of each
   }
 );
 

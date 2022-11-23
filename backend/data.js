@@ -17,7 +17,7 @@ const data = {
   ],
   products: [
     {
-      _id: "1", // id is going to be assigned automaticly by mongdb
+      //_id: "1", // id is going to be assigned automaticly by mongdb
       name: "Nike Slim shirt",
       slug: "nike-slim-shirt",
       category: "Shirts",
@@ -30,7 +30,7 @@ const data = {
       image: "/images/p1.png",
     },
     {
-      _id: "2",
+      // _id: "2",
       name: "Adidas Fit shirt",
       slug: "adidas-fit-shirt",
       category: "Shirts",
@@ -43,7 +43,7 @@ const data = {
       image: "/images/p2.png",
     },
     {
-      _id: "3",
+      //_id: "3",
       name: "Nike pants",
       slug: "nike-pants",
       category: "Pants",
@@ -56,7 +56,7 @@ const data = {
       image: "/images/p3.png",
     },
     {
-      _id: "4",
+      //_id: "4",
       name: "Adidas pants",
       slug: "adidas-pants",
       category: "Pants",
