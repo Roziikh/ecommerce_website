@@ -4,7 +4,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import seedRouter from "./routes/SeedRoutes.js";
 import productRouter from "./routes/productRouter.js";
-//import userRouter from "./routes/userRoutes.js";
+import userRouter from "./routes/userRoutes.js";
+import bodyParser from "body-parser";
 
 dotenv.config(); //to fetch variables in he env file
 
@@ -20,35 +21,15 @@ mongoose //connect to MONGODB database
 const app = express();
 
 //app.use(express.json);
-//app.use(express.urlencoded({ extended: true }));
-
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use("/api/seed", seedRouter);
 app.use("/api/products", productRouter);
-//app.use("/api/users", userRouter);
+app.use("/api/users", userRouter);
 
-// app.use((err, req, res, next) => {
-//   res.status(500).send({ message: err.message });
-// });
-
-// app.get("/api/products", (req, res) => {
-//   res.send(data.products);
-// });
-// app.get("/api/products/slug/:slug", (req, res) => {
-//   const product = data.products.find((x) => x.slug === req.params.slug);
-//   if (product) {
-//     res.send(product);
-//   } else {
-//     res.status(404).send({ message: "Product Not Found" });
-//   }
-// });
-// app.get("/api/products/:id", (req, res) => {
-//   const product = data.products.find((x) => x._id === req.params.id);
-//   if (product) {
-//     res.send(product);
-//   } else {
-//     res.status(404).send({ message: "Product Not Found" });
-//   }
-// });
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
+}); // defining errorhandler for express
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
