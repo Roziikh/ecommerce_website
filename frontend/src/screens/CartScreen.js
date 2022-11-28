@@ -33,7 +33,7 @@ export default function CartScreen() {
   };
 
   const checkoutHandler = () => {
-    navigate("/signin?rediect/shopping"); //in signin screen checking user authentication
+    navigate("/signin?redirect=/shipping"); //in signin screen checking user authentication
   };
 
   return (
