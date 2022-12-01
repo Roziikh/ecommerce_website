@@ -6,6 +6,7 @@ import seedRouter from "./routes/SeedRoutes.js";
 import productRouter from "./routes/productRouter.js";
 import userRouter from "./routes/userRoutes.js";
 import bodyParser from "body-parser";
+import orderRouter from "./routes/orderRoutes.js";
 
 dotenv.config(); //to fetch variables in he env file
 
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use("/api/seed", seedRouter);
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
+app.use("/api/orders", orderRouter);
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
