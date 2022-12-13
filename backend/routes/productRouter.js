@@ -18,7 +18,7 @@ productRouter.post(
     const newProduct = new Product({
       name: "sample name " + Date.now(),
       slug: "sample-name-" + Date.now(),
-      image: "/images/p1.jpg",
+      image: "/images/p1.png",
       price: 0,
       category: "sample category",
       brand: "sample brand",
@@ -50,6 +50,20 @@ productRouter.put(
       product.description = req.body.description;
       await product.save();
       res.send({ message: "Product Updated" });
+    } else {
+      res.status(404).send({ message: "Product Not Found" });
+    }
+  })
+);
+productRouter.delete(
+  "/:id",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const product = await Product.findById(req.params.id);
+    if (product) {
+      await product.remove();
+      res.send({ message: "Product Deleted" });
     } else {
       res.status(404).send({ message: "Product Not Found" });
     }
