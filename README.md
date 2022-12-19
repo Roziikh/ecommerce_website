@@ -41,6 +41,13 @@ $ npm install
 $ npm start
 ```
 
+### 6. PayPal payment
+
+```
+-Create PayPal account at https://developer.paypal.com
+-Use the created test account to make payments
+```
+
 ### 7. backend/.env.example
 
 JWT_SECRET=
