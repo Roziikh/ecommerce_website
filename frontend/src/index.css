@@ -108,8 +108,12 @@ main {
   height: 100%;
   position: absolute;
   left: -300px;
-  background-color: black;
+  background-color: rgb(243, 235, 235);
   transition: 0.5s;
+}
+
+.navbar-title {
+  color: #eb2b0a;
 }
 
 .site-container {

@@ -149,12 +149,16 @@ function App() {
         >
           <Nav className="flex-column text-white w-100 p-2">
             <Nav.Item>
-              <strong>Categories</strong>
+              <strong className="navbar-title">Categories</strong>
             </Nav.Item>
             {categories.map((category) => (
               <Nav.Item key={category}>
                 <LinkContainer
-                  to={`/category=${category}`} //search?-y hanel em category -ic araj
+                  to={{
+                    pathname: "/search",
+                    hash: "#hash",
+                    search: `?category=${category}`,
+                  }} //search?-y hanel em category -ic araj
                   onClick={() => setSidebarIsOpen(false)}
                 >
                   <Nav.Link>{category}</Nav.Link>

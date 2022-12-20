@@ -125,7 +125,16 @@ export default function SearchScreen() {
     const filterRating = filter.rating || rating;
     const filterPrice = filter.price || price;
     const sortOrder = filter.order || order;
-    return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
+    return (
+      <Link
+        to={{
+          pathname: "/search",
+          hash: "#hash",
+          search: `?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`,
+        }}
+      ></Link>
+    );
+    //`/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
   return (
     <div>
@@ -257,7 +266,7 @@ export default function SearchScreen() {
                   </Col>
                 ))}
               </Row>
-              {/* <div>
+              <div>
                 {[...Array(pages).keys()].map((x) => (
                   <LinkContainer
                     key={x + 1}
@@ -272,7 +281,7 @@ export default function SearchScreen() {
                     </Button>
                   </LinkContainer>
                 ))}
-              </div> */}
+              </div>
             </>
           )}
         </Col>
