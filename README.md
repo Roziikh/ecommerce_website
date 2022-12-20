@@ -1,13 +1,15 @@
 # ecommerce_website
 
-Welcome to my React and Node project to build a fully-functional e-commerce website using MongoDB, Mongoose, Node.JS, ExpressJS, React.JS, Bootstrap, HTML5 and CSS3.
-
+Welcome to my React and Node project built as a fully-functional e-commerce website using MongoDB, Mongoose, Node.JS, ExpressJS, React.JS, Bootstrap, HTML5 and CSS3.
 ## Getting Started
 
 ### 1. Clone repo
 ```
-$ git clone github link
-$ cd .. project
+git clone https://github.com/Roziikh/ecommerce_website.git
+cd ecommerce_website/frontend
+npm install
+cd ../backend
+npm install
 ```
 
 ### 2. Create .env File
