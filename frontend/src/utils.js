@@ -3,3 +3,6 @@ export const getError = (error) => {
     ? error.response.data.message
     : error.message;
 };
+
+//if exists data.message return the data in the message field in server.js
+//otherwise general message in error obj

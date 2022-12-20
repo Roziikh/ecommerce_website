@@ -13,6 +13,7 @@ function Product(props) {
     cart: { cartItems },
   } = state;
 
+  //adding cart component in homeScreen
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;

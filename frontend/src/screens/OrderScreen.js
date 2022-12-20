@@ -65,7 +65,7 @@ export default function OrderScreen() {
       })
       .then((orderID) => {
         return orderID;
-      });
+      }); //when creates then returns orderId from paypal
   }
 
   function onApprove(data, actions) {
@@ -230,14 +230,14 @@ export default function OrderScreen() {
                 </ListGroup.Item>
                 {!order.isPaid && ( // if order is paid no need to show paypal button
                   <ListGroup.Item>
-                    {isPending ? (
+                    {isPending ? ( // isPending from react-Paypal
                       <LoadingBox />
                     ) : (
                       <div>
                         <PayPalButtons
-                          createOrder={createOrder}
-                          onApprove={onApprove}
-                          onError={onError}
+                          createOrder={createOrder} // runs when clicking on button
+                          onApprove={onApprove} // runs when the payment is successful
+                          onError={onError} // when there is errror
                         ></PayPalButtons>
                       </div>
                     )}

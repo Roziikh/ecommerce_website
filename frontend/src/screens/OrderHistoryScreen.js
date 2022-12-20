@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { getError } from "../utils";
-import Button from "react-bootstrap/esm/Button";
+import Button from "react-bootstrap/Button";
 import LoadingBox from "../Components/LoadingBox";
 import MessageBox from "../Components/MessageBox";
 import { Store } from "../store";

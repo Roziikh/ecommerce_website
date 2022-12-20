@@ -14,7 +14,7 @@ const reducer = (state, action) => {
     case "FETCH_REQUEST":
       return { ...state, loading: true };
     case "FETCH_SUCCESS":
-      return { ...state, products: action.payload, loading: false };
+      return { ...state, products: action.payload, loading: false }; //action.payload contains all products from backend
     case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
     default:
@@ -24,6 +24,7 @@ const reducer = (state, action) => {
 
 function HomeScreen() {
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+    //logger dispatches actions
     products: [],
     loading: true,
     error: "",
@@ -43,12 +44,17 @@ function HomeScreen() {
     fetchData();
   }, []);
   return (
-    <div>
+    <div className="masthead">
       <Helmet>
-        <title>Amazona</title>
+        <title>The Christmas Boutique</title>
       </Helmet>
-      <h1>Featured Products</h1>
+      <div className="homescreen-title">
+        <h1>Holiday Specials</h1>
+        <br />
+        <h5>YOUR SOURCE FOR ALL THINGS CHRISTMAS</h5>
+      </div>
       <div className="products">
+        <h1>Featured Products</h1>
         {loading ? (
           <LoadingBox />
         ) : error ? (
@@ -57,7 +63,7 @@ function HomeScreen() {
           // data.products-y poxum enq products
           <Row>
             {products.map((product) => (
-              <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+              <Col key={product.slug} sm={6} md={4} lg={4} className="mb-3">
                 <Product product={product}></Product>
               </Col>
             ))}

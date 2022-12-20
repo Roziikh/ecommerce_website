@@ -68,16 +68,18 @@ function App() {
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar bg="dark" variant="dark" expand="lg ">
+          <Navbar bg="light" variant="" expand="lg">
             <Container>
               <Button
-                variant="dark"
+                variant=""
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
                 <i className="fas fa-bars"></i>
               </Button>
               <LinkContainer to="/">
-                <Navbar.Brand>amazona</Navbar.Brand>
+                <Navbar.Brand className="header-title">
+                  The Christams Boutique
+                </Navbar.Brand>
               </LinkContainer>
               {
                 //hamburger menu
