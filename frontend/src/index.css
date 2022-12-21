@@ -1,4 +1,7 @@
 body {
+  background-image: url(../public/images/background.jpeg);
+  background-size: contain;
+  position: relative;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -7,14 +10,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.masthead {
+/* .masthead {
   background-image: url(../public/images/christamas1.jpg);
   background-repeat: no-repeat;
   background-size: contain;
   min-height: 100vh;
   position: relative;
   color: white;
-}
+} */
 
 .homescreen-title {
   text-align: center;
@@ -33,7 +36,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 40%;
+  /* margin-top: 40%; */
 }
 
 .header-title {
@@ -83,9 +86,18 @@ main {
   height: 80px;
 }
 
+.searchScreen,
+.productListScreen {
+  background-color: #eeecec;
+}
+
 /*signin screen*/
 .small-container {
   max-width: 600px;
+  background-color: #aaa3a3;
+  background-size: contain;
+  position: relative;
+  color: white;
 }
 
 .checkout-steps > div {

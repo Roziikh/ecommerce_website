@@ -7,12 +7,11 @@ import { Helmet } from "react-helmet-async";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import LinkContainer from "react-router-bootstrap/LinkContainer";
+//import LinkContainer from "react-router-bootstrap/LinkContainer";
 import Rating from "../Components/Rating";
 import LoadingBox from "../Components/LoadingBox";
 import MessageBox from "../Components/MessageBox";
 import Product from "../Components/Product";
-
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
@@ -28,12 +27,10 @@ const reducer = (state, action) => {
       };
     case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
-
     default:
       return state;
   }
 };
-
 const prices = [
   {
     name: "$1 to $50",
@@ -48,29 +45,24 @@ const prices = [
     value: "201-1000",
   },
 ];
-
 export const ratings = [
   {
     name: "4stars & up",
     rating: 4,
   },
-
   {
     name: "3stars & up",
     rating: 3,
   },
-
   {
     name: "2stars & up",
     rating: 2,
   },
-
   {
     name: "1stars & up",
     rating: 1,
   },
 ];
-
 export default function SearchScreen() {
   const navigate = useNavigate();
   const { search } = useLocation();
@@ -81,13 +73,11 @@ export default function SearchScreen() {
   const rating = sp.get("rating") || "all";
   const order = sp.get("order") || "newest";
   const page = sp.get("page") || 1;
-
   const [{ loading, error, products, pages, countProducts }, dispatch] =
     useReducer(reducer, {
       loading: true,
       error: "",
     });
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -104,7 +94,6 @@ export default function SearchScreen() {
     };
     fetchData();
   }, [category, error, order, page, price, query, rating]);
-
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     const fetchCategories = async () => {
@@ -117,7 +106,6 @@ export default function SearchScreen() {
     };
     fetchCategories();
   }, [dispatch]);
-
   const getFilterUrl = (filter) => {
     const filterPage = filter.page || page;
     const filterCategory = filter.category || category;
@@ -125,19 +113,19 @@ export default function SearchScreen() {
     const filterRating = filter.rating || rating;
     const filterPrice = filter.price || price;
     const sortOrder = filter.order || order;
-    return (
-      <Link
-        to={{
-          pathname: "/search",
-          hash: "#hash",
-          search: `?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`,
-        }}
-      ></Link>
-    );
-    //`/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
+    // return (
+    //   <LinkContainer
+    //     to={{
+    //       pathname: "/search",
+    //       hash: "#hash",
+    //       search: `?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`,
+    //     }}
+    //   ></LinkContainer>
+    // );
+    return `/search?category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
   return (
-    <div>
+    <div className="searchScreen">
       <Helmet>
         <title>Search Products</title>
       </Helmet>
@@ -266,7 +254,7 @@ export default function SearchScreen() {
                   </Col>
                 ))}
               </Row>
-              <div>
+              {/* <div>
                 {[...Array(pages).keys()].map((x) => (
                   <LinkContainer
                     key={x + 1}
@@ -281,7 +269,7 @@ export default function SearchScreen() {
                     </Button>
                   </LinkContainer>
                 ))}
-              </div>
+              </div> */}
             </>
           )}
         </Col>

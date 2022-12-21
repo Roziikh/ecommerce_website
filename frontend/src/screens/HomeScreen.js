@@ -48,11 +48,11 @@ function HomeScreen() {
       <Helmet>
         <title>The Christmas Boutique</title>
       </Helmet>
-      <div className="homescreen-title">
+      {/* <div className="homescreen-title">
         <h1>Holiday Specials</h1>
         <br />
         <h5>YOUR SOURCE FOR ALL THINGS CHRISTMAS</h5>
-      </div>
+      </div> */}
       <div className="products">
         <h1>Featured Products</h1>
         {loading ? (
@@ -63,7 +63,7 @@ function HomeScreen() {
           // data.products-y poxum enq products
           <Row>
             {products.map((product) => (
-              <Col key={product.slug} sm={6} md={4} lg={4} className="mb-3">
+              <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product}></Product>
               </Col>
             ))}
